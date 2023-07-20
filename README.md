@@ -1,15 +1,15 @@
-# huggingface-sync-action
+# huggingface-sync-action 🤗
 
-A GitHub action that'll sync files from a GitHub repo with the Hugging Face Hub. 🤗
+A GitHub action that'll sync files from a GitHub repo with the Hugging Face Hub. 
 
-A simple example repo using this can be found [here](https://github.com/nateraw/test-spaces-app).
+A simple example repo using this can be found [here](https://github.com/ramonvc/freegpt-webui).
 
 ## Usage
 
-The first step is to add a Hugging Face token with write access to your repo as a GitHub Secret. Below, mine is called `HF_TOKEN`. Then, you can use this action in your repo as shown below. 🤗
+The first step is to add a Hugging Face token with write access to your repo as a GitHub Secret. Below, mine is called `HF_TOKEN`. Then, you can use this action in your repo as shown below. 
 
 ```yaml
-uses: nateraw/huggingface-sync-action@v0.0.5
+uses: ramonvc/huggingface-sync-action@v0.0.1
 with:
   # The github repo you are syncing from. Required.
   github_repo_id: ''
@@ -37,11 +37,15 @@ with:
   # This option is especially important if the repo has not been created yet.
   # It won't really be used if the repo already exists.
   space_sdk: 'gradio'
-  
+
   # If provided, subdirectory will determine which directory of the repo will be synced.
   # By default, this action syncs the entire GitHub repo.
   #
   # An example using this option can be seen here:
   # https://github.com/huggingface/fuego/blob/830ed98/.github/workflows/sync-with-huggingface.yml
   subdirectory: ''
+
+  # The branch of the github repo you are syncing from.
+  # By default, this action syncs the 'main' branch.
+  branch: 'main'
 ```
